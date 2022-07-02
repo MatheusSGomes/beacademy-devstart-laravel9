@@ -1,25 +1,29 @@
 <?php
 
 namespace App\Http\Controllers;
+use App\Models\User;
 
-use Illuminate\Http\Request;
+// use Illuminate\Http\Request;
 
 class UserController extends Controller
 {
     public function index()
     {
-        $users = [
-            'nomes' => [
-                'Matheus Gomes', 
-                'José Lira'
-            ]
-        ];
-
-        dd($users);
+        $users = User::all();
+        return view('users.index', compact('users'));
     }
 
-    public function show($id) 
+    public function show($id)
     {
-        dd('ID do usuário: '.$id);
+        // $user = User::where('id', $id)->first();
+        // $user = User::findOrFail($id);
+        // $user = User::find($id);
+        // return $user;
+
+        if(!$user = User::find($id)) {
+            return redirect()->route('users.index');
+        }
+
+        return view('users.show', compact('user'));
     }
 }
