@@ -2,6 +2,15 @@
 @section ('title', 'Criar usuário')
 @section('body')
   <h1>Novo usuário</h1>
+
+  @if($errors->any()) 
+    <div class="alert alert-danger">
+        @foreach($errors->all() as $error)
+          {{ $error }}<br>
+        @endforeach
+    </div>
+  @endif
+
   <form action="{{ route('users.store') }}" method="POST">
     @csrf
 
