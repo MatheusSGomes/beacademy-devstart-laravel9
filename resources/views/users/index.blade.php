@@ -1,6 +1,13 @@
 @extends('template.users')
 @section('title', 'Listagem de usuários')
 
+<nav class="navbar bg-light">
+  <div class="container-fluid justify-content-start">
+    <a href="{{ route('users.index') }}" class="btn btn-sm btn-outline-dark me-2" type="button">Usuários</a>
+    <a href="" class="btn btn-sm btn-outline-dark me-2" type="button">Posts</a>
+  </div>
+</nav>
+
 @section('body')
   <h1>Listagem de usuários</h1>
 
@@ -23,7 +30,7 @@
           <td>{{ $user->name }}</td>
           <td>{{ $user->email }}</td>
           <td>{{ date('d/m/Y - H:i', strToTime($user->created_at))  }}</td>
-          <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-info text-white btn-sm">Visualizar</a></td>
+          <td><a href="{{ route('users.show', $user->id) }}" class="btn btn-primary text-white btn-sm">Visualizar</a></td>
         </tr>
       @endforeach
     </tbody>
