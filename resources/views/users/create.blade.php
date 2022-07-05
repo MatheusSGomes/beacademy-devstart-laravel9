@@ -29,6 +29,11 @@
       <input type="password" class="form-control" id="password" name="password">
     </div>
 
+    <div class="mb-3">
+      <label for="image" class="form-label">Selecione uma imagem</label>
+      <input type="file" class="form-control form-control-md" id="image" name="image" />
+    </div>
+
     <button type="submit" class="btn btn-primary">Enviar</button>
   </form>
 @endsection
