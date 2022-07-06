@@ -41,6 +41,8 @@ class UserController extends Controller
 
     public function store(StoreUpdateUserFormRequest $request)
     {
+        dd($request->all());
+        
         // $user = new User;
         // $user->name = $request->name;
         // $user->email = $request->email;
