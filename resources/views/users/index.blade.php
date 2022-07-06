@@ -21,9 +21,9 @@
         <tr>
 
           @if($user->image)
-            <th><img src="{{ asset('storage/'.$user->image ) }}" width="50px" height="50px" class="rounded-circle"></th>
+            <th><img src="{{ asset('storage/'.$user->image ) }}" alt="{{ "Foto de ".$user->name }}" title="{{ "Foto de ".$user->name }}" width="50px" height="50px" class="rounded-circle" ></th>
           @else
-            <th><img src="{{ asset('storage/profile/avatar.jpg' ) }}" width="50px" height="50px" class="rounded-circle"></th>
+            <th><img src="{{ asset('storage/profile/avatar.jpg' ) }}" alt="{{ "Avatar de ".$user->name }}" title="{{ "Avatar de ".$user->name }}" width="50px" height="50px" class="rounded-circle"></th>
           @endif
 
           <th scope="row">{{ $user->id }}</th>
@@ -35,4 +35,7 @@
       @endforeach
     </tbody>
   </table>
+  <div class="justify-content-center pagination">
+    {{ $users->links('pagination::bootstrap-4') }}
+  </div>
 @endsection
