@@ -12,7 +12,7 @@
   <nav class="navbar bg-dark p-3">
     <div class="container-fluid w-50 justify-content-start">
       <a href="{{ route('users.index') }}" class="btn btn-sm btn-outline-light me-2" type="button">Usuários</a>
-      <a href="" class="btn btn-sm btn-outline-light me-2" type="button">Posts</a>
+      <a href="{{ route('posts.index') }}" class="btn btn-sm btn-outline-light me-2" type="button">Posts</a>
     </div>
   </nav>
 

@@ -2,17 +2,18 @@
 
 use App\Http\Controllers\{
     UserController,
-    ViaCepController
+    ViaCepController,
+    PostController
 };
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::redirect('/', '/users');
 
-Route::get('/hello-world', function () {
-    echo "Olá mundo!";
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 
 // Route::get('/users/{nome}', function ($nome) {
 //     echo $nome;
