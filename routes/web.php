@@ -15,6 +15,9 @@ Route::redirect('/', '/users');
 
 Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 
+
+Route::get('/users/{id}/posts', [PostController::class, 'show'])->name('posts.show');
+
 // Route::get('/users/{nome}', function ($nome) {
 //     echo $nome;
 // });

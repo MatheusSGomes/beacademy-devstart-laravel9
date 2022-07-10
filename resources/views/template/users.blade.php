@@ -10,13 +10,13 @@
 </head>
 <body>
   <nav class="navbar bg-dark p-3">
-    <div class="container-fluid w-50 justify-content-start">
+    <div class="container-fluid w-75 justify-content-start">
       <a href="{{ route('users.index') }}" class="btn btn-sm btn-outline-light me-2" type="button">Usuários</a>
       <a href="{{ route('posts.index') }}" class="btn btn-sm btn-outline-light me-2" type="button">Posts</a>
     </div>
   </nav>
 
-  <div class="container w-50 p-3">
+  <div class="container w-75 p-3">
     @yield('body')
   </div>
 </body>
