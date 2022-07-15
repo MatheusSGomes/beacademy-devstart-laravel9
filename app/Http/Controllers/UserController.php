@@ -34,20 +34,22 @@ class UserController extends Controller
         // $user = User::find($id);
         // return $user;
 
-        if(!$user = User::find($id)) {
-            return redirect()->route('users.index');
-        }
+        // if(!$user = User::find($id)) {
+        //     return redirect()->route('users.index');
+        // }
         
-        return view('users.show', compact('user', 'title'));
+        // return view('users.show', compact('user'));
 
-        // $team = Team::find($id);
-        // $team->load('users');
+        // return view('users.show', compact('user', 'title'));
 
-        // return $team;
+        $team = Team::find($id);
+        $team->load('users');
+
+        return $team;
         
         // $user->load('teams');
         // $title = "Usuário ".$user->name;
-        // // return $user;
+        // return $user;
 
     }
 

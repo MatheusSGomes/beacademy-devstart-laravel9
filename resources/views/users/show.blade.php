@@ -1,5 +1,6 @@
 @extends('template.users')
-@section('title', $title)
+{{-- @section('title', $title) --}}
+@section('title', "Usuário")
 
 @section('body')
   <h1>Usuario {{ $user->name }}</h1>
