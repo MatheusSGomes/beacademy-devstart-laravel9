@@ -16,6 +16,7 @@ class User extends Authenticatable
         'name',
         'email',
         'image',
+        'is_admin',
         'password',
         'remember_token',
         'email_verified_at'

@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
+use App\Http\Controllers\{
+    UserController,
+    PostController
+};
 
 require __DIR__.'/auth.php';
 
@@ -20,4 +23,8 @@ Route::middleware(['auth'])->group(function () {
 
     Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
     Route::get('/users/{id}/posts', [PostController::class, 'show'])->name('posts.show');
+});
+
+Route::middleware(['auth', 'admin'])->group(function() {
+    Route::get('/admin', [UserController::class, 'admin'])->name('admin');
 });

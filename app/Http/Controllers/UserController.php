@@ -34,23 +34,24 @@ class UserController extends Controller
         // $user = User::find($id);
         // return $user;
 
-        // if(!$user = User::find($id)) {
-        //     return redirect()->route('users.index');
-        // }
+        if(!$user = User::find($id)) {
+            return redirect()->route('users.index');
+        }
         
-        // return view('users.show', compact('user'));
+        return view('users.show', compact('user'));
 
         // return view('users.show', compact('user', 'title'));
 
-        $team = Team::find($id);
-        $team->load('users');
-
-        return $team;
         
         // $user->load('teams');
         // $title = "Usuário ".$user->name;
         // return $user;
+        
 
+        // $team = Team::find($id);
+        // $team->load('users');
+
+        // return $team;
     }
 
     public function create()
@@ -117,5 +118,9 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->route('users.index');
+    }
+
+    public function admin() {
+        return view('admin.index');
     }
 }
