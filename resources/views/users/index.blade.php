@@ -1,8 +1,28 @@
 @extends('template.users')
 @section('title', 'Listagem de usuários')
 @section('body')
-  <h1 class="mb-3">Listagem de usuários</h1>
+  <h1 class="mb-3 mt-3">Listagem de usuários</h1>
 
+  @if(session()->has('create'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <p>{{ session()->get('create') }}</p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  @endif
+
+  @if(session()->has('edit'))
+    <div class="alert alert-success alert-dismissible fade show" role="alert">
+      <p>{{ session()->get('edit') }}</p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  @endif
+
+  @if(session()->has('destroy'))
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <p>{{ session()->get('destroy') }}</p>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  @endif
   
   <div class="container">
     <div class="row">
