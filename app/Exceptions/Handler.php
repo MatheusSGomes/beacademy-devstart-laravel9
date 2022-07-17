@@ -4,6 +4,9 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use App\Http\Controllers\UserController;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+use App\Exceptions\UserControllerException;
 
 class Handler extends ExceptionHandler
 {
@@ -45,6 +48,15 @@ class Handler extends ExceptionHandler
     {
         $this->reportable(function (Throwable $e) {
             //
+        });
+
+        $this->reportable(function (NotFoundHttpException $e) {
+            return response()->view('errors.404');
+        });
+        
+        $this->reportable(function (UserControllerException $exception) {
+            $message = $exception->getMessage();
+            return response()->view('errors.not_found', compact('message'));
         });
     }
 }

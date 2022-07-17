@@ -5,6 +5,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\StoreUpdateUserFormRequest;
 use App\Models\Team;
+use App\Exceptions\UserControllerException;
 
 class UserController extends Controller
 {
@@ -33,14 +34,28 @@ class UserController extends Controller
         // $user = User::findOrFail($id);
         // $user = User::find($id);
         // return $user;
-
-        if(!$user = User::find($id)) {
-            return redirect()->route('users.index');
-        }
         
-        return view('users.show', compact('user'));
+        
+        // COM TRATAMENTO DE EXCEÇÃO
+        $user = User::find($id);
+
+        if($user) {
+            return view('users.show', compact('user'));
+        } else {
+            throw new UserControllerException('Usuário não encontrado');
+        }
+
+
+        // SEM TRATAMENTO DE EXCEÇÃO
+        // if(!$user = User::findOrFail($id)) {
+        //     return redirect()->route('users.index');
+        // }
+        
+        // return view('users.show', compact('user'));
 
         // return view('users.show', compact('user', 'title'));
+
+
 
         
         // $user->load('teams');
